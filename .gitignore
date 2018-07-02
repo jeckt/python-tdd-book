@@ -2,3 +2,5 @@ db.sqlite3
 geckodriver.log
 _pycache__
 *.pyc
+*.swp
+*.swo
