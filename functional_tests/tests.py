@@ -1,4 +1,5 @@
-from django.test import LiveServerTestCase, tag
+from django.test import tag
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
@@ -7,7 +8,7 @@ import time
 
 MAX_WAIT = 10
 
-class NewVisitorText(LiveServerTestCase):
+class NewVisitorText(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -136,8 +137,10 @@ class NewVisitorText(LiveServerTestCase):
 
         self.wait_for_row_in_list_table('1: testing')
         inputbox = self.browser.find_element_by_id('id_new_item')
+        # NOTE(steve): for this test to work properly as the 
+        # book intended, use 512 not 640. 640 is for the pi2
         self.assertAlmostEqual(
             inputbox.location['x'] + inputbox.size['width'] / 2,
-            512,
+            640,
             delta=10
         )
