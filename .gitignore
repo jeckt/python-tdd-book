@@ -7,3 +7,4 @@ _pycache__
 /static
 digital_ocean.txt
 .env
+virtualenv/
