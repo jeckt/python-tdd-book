@@ -1,14 +1,14 @@
 [Unit]
-Description=Gunicorn server for superlists-staging.ga
+Description=Gunicorn server for DOMAIN
 
 [Service]
 Restart=on-failure
-User=jeckt
-WorkingDirectory=/home/jeckt/sites/superlists-staging.ga
-EnvironmentFile=/home/jeckt/sites/superlists-staging.ga/.env
+User=steve
+WorkingDirectory=/home/steve/sites/DOMAIN
+EnvironmentFile=/home/steve/sites/DOMAIN/.env
 
-ExecStart=/home/jeckt/sites/superlists-staging.ga/virtualenv/bin/gunicorn \
-    --bind unix:/tmp/superlists-staging.ga.socket \
+ExecStart=/home/steve/sites/DOMAIN/virtualenv/bin/gunicorn \
+    --bind unix:/tmp/DOMAIN.socket \
     superlists.wsgi:application
 
 [Install]
