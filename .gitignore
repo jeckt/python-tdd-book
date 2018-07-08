@@ -6,3 +6,4 @@ _pycache__
 *.swo
 /static
 digital_ocean.txt
+.env
