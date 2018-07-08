@@ -1,0 +1,15 @@
+[Unit]
+Description=Gunicorn server for superlists-staging.ga
+
+[Service]
+Restart=on-failure
+User=jeckt
+WorkingDirectory=/home/jeckt/sites/superlists-staging.ga
+EnvironmentFile=/home/jeckt/sites/superlists-staging.ga/.env
+
+ExecStart=/home/jeckt/sites/superlists-staging.ga/virtualenv/bin/gunicorn \
+    --bind unix:/tmp/superlists-staging.ga.socket \
+    superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
