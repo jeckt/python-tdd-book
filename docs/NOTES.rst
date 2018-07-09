@@ -127,3 +127,14 @@ Other selenium methods:
     * `find_element_by_tag_name`
     * `find_element_by_id`
     * `find_elements_by_tag_name`
+
+===============
+Data Validation
+===============
+
+In a web app you can validate on the:
+
+    * Client side (JavaScript or HTML5 properties)
+    * Server side (`Model` level or higher up at the `Forms` level)
+
+Validation at the server side is *safer* because someone can always bypass the client side and `Model` level is safer as you can sometimes forget which form you use to validate input but all input must go through the database and hence `Model`.
