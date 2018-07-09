@@ -138,3 +138,10 @@ In a web app you can validate on the:
     * Server side (`Model` level or higher up at the `Forms` level)
 
 Validation at the server side is *safer* because someone can always bypass the client side and `Model` level is safer as you can sometimes forget which form you use to validate input but all input must go through the database and hence `Model`.
+
+===============
+Useful Commands
+===============
+
+    $ git log --graph --oneline --decorate
+    $ grep -E "class|def" lists/test.py
