@@ -139,6 +139,16 @@ In a web app you can validate on the:
 
 Validation at the server side is *safer* because someone can always bypass the client side and `Model` level is safer as you can sometimes forget which form you use to validate input but all input must go through the database and hence `Model`.
 
+============
+Django Forms
+============
+
+Forms have several advantages:
+
+    * Process user input and validate it for errors
+    * Used in templates to render HTML input elements, and error messages.
+    * Save data to the database (directly without additional code)
+
 ===============
 Useful Commands
 ===============
