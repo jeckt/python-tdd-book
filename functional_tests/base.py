@@ -1,4 +1,3 @@
-from .server_tools import reset_database
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
@@ -14,6 +13,7 @@ class FunctionalTest(StaticLiveServerTestCase):
         self.browser = webdriver.Firefox()
         self.staging_server = os.environ.get('STAGING_SERVER')
         if self.staging_server:
+            from .server_tools import reset_database
             self.live_server_url = 'http://' + self.staging_server
             reset_database(self.staging_server)
 

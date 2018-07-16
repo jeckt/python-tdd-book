@@ -1,12 +1,12 @@
 from django.conf import settings
 from .base import FunctionalTest
-from .server_tools import create_session_on_server
 from .management.commands.create_session import create_pre_authenticated_session
 
 class MyListsTest(FunctionalTest):
 
     def create_pre_authenticated_session(self, email):
         if self.staging_server:
+            from .server_tools import create_session_on_server
             session_key = create_session_on_server(self.staging_server,
                                                    email)
         else:
