@@ -8,3 +8,4 @@ _pycache__
 digital_ocean.txt
 .env
 virtualenv/
+functional_tests/screendumps
