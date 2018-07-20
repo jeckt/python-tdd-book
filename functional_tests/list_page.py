@@ -1,7 +1,6 @@
 from selenium.webdriver.common.keys import Keys
 from .base import wait
 
-# TODO(steve): refactor FTs to use ListPage class
 class ListPage(object):
 
     def __init__(self, test):
