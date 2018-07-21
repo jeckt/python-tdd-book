@@ -211,10 +211,19 @@ class NewListViewUnitTest(unittest.TestCase):
 class ShareListTest(TestCase):
 
     def test_post_redirects_to_lists_page(self):
-        user = User.objects.create(email='a@b.com')
-        list_ = List.create_new('new list item', owner=user)
-
+        list_ = List.objects.create()
         response = self.client.post('/lists/%d/share' % (list_.id,),
-                                    data={'email': 'c@d.com'}
+                                    data={'share_to': User.objects.create()}
         )
         self.assertRedirects(response, '/lists/%d/' % (list_.id,))
+
+    def test_can_share_a_list_with_another_user(self):
+        user1 = User.objects.create(email='a@b.com')
+        user2 = User.objects.create(email='c@d.com')
+        list_ = List.create_new('new text item', owner=user1)
+
+        self.client.post('/lists/%d/share' % (list_.id,),
+                         data={'share_to': user2}
+        )
+        self.assertEqual(user2, list_.shared_with.all())
+
