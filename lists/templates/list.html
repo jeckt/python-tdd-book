@@ -10,7 +10,8 @@
       <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
     {% endfor %}
   </table>
-  <form>
+  <form action="{% url 'share_list' list.id %}" method="POST">
     <input name="sharee" placeholder="your-friend@example.com"/>
+    {% csrf_token %}
   </form>
 {% endblock %}
