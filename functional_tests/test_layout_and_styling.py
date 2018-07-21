@@ -23,7 +23,7 @@ class LayoutAndStylingTest(FunctionalTest):
         inputbox.send_keys('testing')
         inputbox.send_keys(Keys.ENTER)
 
-        list_page.wait_for_row_in_list_table('1: testing')
+        list_page.wait_for_row_in_list_table('testing', 1)
         inputbox = list_page.get_item_input_box()
         self.assertAlmostEqual(
             inputbox.location['x'] + inputbox.size['width'] / 2,
