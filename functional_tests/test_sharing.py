@@ -2,7 +2,7 @@ from selenium import webdriver
 from .base import FunctionalTest
 
 from .list_page import ListPage
-# from .my_lists_page import MyListsPage
+from .my_lists_page import MyListsPage
 
 def quit_if_possible(browser):
     try: browser.quit()
@@ -57,4 +57,4 @@ class SharingTest(FunctionalTest):
         # When Edith refreshes the page, she sees Oniciferous's addition
         self.browser = edith_browser
         self.browser.refresh()
-        list_page.wait_for_row_in_list_table('Hi, Edith!', 2)
+        list_page.wait_for_row_in_list_table('Hi Edith!', 2)

@@ -213,7 +213,7 @@ class ShareListTest(TestCase):
     def test_post_redirects_to_lists_page(self):
         list_ = List.objects.create()
         response = self.client.post('/lists/%d/share' % (list_.id,),
-                                    data={'share_to': User.objects.create()}
+                                    data={'sharee': User.objects.create()}
         )
         self.assertRedirects(response, '/lists/%d/' % (list_.id,))
 
@@ -223,7 +223,7 @@ class ShareListTest(TestCase):
 
         user2 = User.objects.create(email='c@d.com')
         self.client.post('/lists/%d/share' % (list_.id,),
-                         data={'share_to': user2.email}
+                         data={'sharee': user2.email}
         )
 
         self.assertIn(user2, list_.shared_with.all())
