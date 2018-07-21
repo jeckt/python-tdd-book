@@ -95,5 +95,5 @@ class ListModelTest(TestCase):
         user = User.objects.create(email='a@b.com')
         list_ = List.create_new(first_item_text='new item text', owner=user)
         another_user = User.objects.create(email='c@d.com')
-        list_.shared_with.add(another_user)
+        list_.shared_with.add(another_user.email)
         self.assertIn(another_user, list_.shared_with.all())

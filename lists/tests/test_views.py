@@ -219,11 +219,12 @@ class ShareListTest(TestCase):
 
     def test_can_share_a_list_with_another_user(self):
         user1 = User.objects.create(email='a@b.com')
-        user2 = User.objects.create(email='c@d.com')
         list_ = List.create_new('new text item', owner=user1)
 
+        user2 = User.objects.create(email='c@d.com')
         self.client.post('/lists/%d/share' % (list_.id,),
-                         data={'share_to': user2}
+                         data={'share_to': user2.email}
         )
-        self.assertEqual(user2, list_.shared_with.all())
+
+        self.assertIn(user2, list_.shared_with.all())
 
