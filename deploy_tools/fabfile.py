@@ -38,7 +38,7 @@ def _create_or_update_dotenv():
         ))
         append('.env', 'DJANGO_SECRET_KEY=%s' % (new_secret,))
     email_password = os.environ['EMAIL_PASSWORD']
-    append('.env', 'EMAIL_PASSWORD=%s' %s (email_password,))
+    append('.env', 'EMAIL_PASSWORD=%s' % (email_password,))
 
 def _update_static_files():
     run('./virtualenv/bin/python manage.py collectstatic --noinput')

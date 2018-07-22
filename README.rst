@@ -26,3 +26,21 @@ You will also need bootstrap for this project
     $ mkdir lists/static
     $ mv bootstrap-3.3.4-dist lists/static/bootstrap
     $ rm bootstrap.zip
+
+Deployment Instructions
+=======================
+
+Deployment is done using Fabric.
+
+    $ git push
+    $ cd deploy_tools
+    $ fab deploy:host=steve@DOMAIN
+
+On Server:
+
+    steve@server:$ sudo systemctl restart GUNICORN_SERVICE
+
+Staging Server: superlists-staging.ga
+Prod Server: superlists.ga
+
+
